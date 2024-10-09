@@ -1,0 +1,78 @@
+<!-- <ul>
+  <li *ngFor="let book of books">
+    {{ book.title }} by {{ book.author.name }}
+    <button (click)="deleteBook(book.id)">Delete</button>
+  </li>
+</ul> -->
+<div class="list-books-container">
+  <div class="ag-format-container">
+    <div class="lib-title-container">
+      <button class="library-add-borrower" (click)="navigateToAddBorrower()">
+        Register to Borrower
+      </button>
+      <div class="library-title">Library Collection</div>
+      <button class="library-add-book" (click)="navigateToAddBook()">
+        Add Book
+      </button>
+    </div>
+
+    <!-- <hr width="100%;" color="gray" size="5" /> -->
+    <div class="ag-courses_box">
+      <div class="ag-courses_item" *ngFor="let book of books">
+        <a class="ag-courses-item_link">
+          <div class="ag-courses-item_bg"></div>
+
+          <div class="ag-courses-item_title">
+            <span>{{ book.title }}<br /></span>
+            <!-- <span
+            class="ag-courses-item_author"
+            style="color: rgb(255, 255, 255)"
+            >By {{ book.author.name }}</span
+          > -->
+          </div>
+          <div class="ag-courses-item_author">
+            <span
+              class="ag-courses-item_author"
+              style="color: rgb(255, 255, 255)"
+              >By {{ book?.author?.name }}</span
+            >
+          </div>
+          <div class="ag-courses-item-genre-box">
+            Genre:
+            <span
+              class="ag-courses-item-genre"
+              style="color: rgb(255, 255, 255)"
+            >
+              {{ book.genre }}</span
+            >
+          </div>
+
+          <div class="ag-courses-item_date-box">
+            Published Date
+            <span class="ag-courses-item_date">
+              {{ book.publishedDate }}
+            </span>
+          </div>
+
+          <div class="ag-courses-item_borrow-return-box">
+            <button
+              class="ag-courses-item_borrow-return"
+              (click)="goToBorrowBookPage(book.id)"
+            >
+              <!-- (onClick)="goToBorrowBookPage(book.id)" -->
+              <!-- [routerLink]="['/borrow-book', book.id, 1]" -->
+              Borrow
+            </button>
+            <button
+              class="ag-courses-item_borrow-return"
+              (click)="goToReturnBookPage(book.id)"
+            >
+              <!-- [routerLink]="['/return-book', book.id, 1]" -->
+              Return
+            </button>
+          </div>
+        </a>
+      </div>
+    </div>
+  </div>
+</div>

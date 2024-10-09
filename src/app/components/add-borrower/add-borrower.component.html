@@ -1,0 +1,40 @@
+<!-- add-borrower.component.html -->
+<div class="add-borrower-container">
+    <form class="form" [formGroup]="borrowerForm" (ngSubmit)="onSubmit()">
+      <div class="title">Add New Borrower</div>
+  
+      <div class="input-container ic1">
+        <input
+          id="name"
+          class="input"
+          type="text"
+          placeholder=" "
+          formControlName="name"
+          required
+        />
+        <div class="cut"></div>
+        <label for="name" class="placeholder">Name</label>
+      </div>
+  
+      <div class="input-container ic2">
+        <input
+          id="email"
+          class="input"
+          type="email"
+          placeholder=" "
+          formControlName="email"
+          required
+        />
+        <div class="cut"></div>
+        <label for="email" class="placeholder">Email</label>
+      </div>
+  
+      <button type="submit" class="submit">Add Borrower</button>
+      <div>
+        <button class="navBack" (click)="navigateToLibrary()">
+          Back to Library
+        </button>
+      </div>
+    </form>
+  </div>
+  

@@ -1,1 +1,11 @@
 /* You can add global styles to this file, and also import other style files */
+
+body {
+  margin: 0px;
+  padding: 0px;
+}
+
+app-root {
+  display: block; /* Ensures it behaves as a block element */
+  margin: 0; /* Ensures no margin around app-root */
+}

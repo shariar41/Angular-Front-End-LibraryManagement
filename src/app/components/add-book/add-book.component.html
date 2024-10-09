@@ -1,0 +1,124 @@
+<div class="add-book-container">
+  <form class="form" [formGroup]="bookForm" (ngSubmit)="onSubmit()">
+    <div class="title">Welcome</div>
+    <div class="subtitle">Let's add a Book in the library</div>
+
+    <div class="input-container ic1">
+      <input
+        id="title"
+        class="input"
+        type="text"
+        placeholder=" "
+        formControlName="title"
+        required
+      />
+      <div class="cut"></div>
+      <label for="title" class="placeholder">Title</label>
+
+      <!-- <input id="title" formControlName="title" required /> -->
+    </div>
+    <div class="input-container ic2">
+      <input
+        id="isbn"
+        class="input"
+        type="text"
+        placeholder=" "
+        formControlName="isbn"
+        required
+      />
+      <div class="cut"></div>
+      <label for="isbn" class="placeholder">ISBN</label>
+    </div>
+    <div class="input-container ic2">
+      <input
+        id="publishedDate"
+        class="input"
+        type="date"
+        formControlName="publishedDate"
+        required
+      />
+      <div class="cut cut-short"></div>
+      <label for="publishedDate" class="placeholder">Published Date</label>
+    </div>
+
+    <div class="input-container ic2">
+      <input
+        id="genre"
+        class="input"
+        type="text"
+        placeholder=" "
+        formControlName="genre"
+        required
+      />
+      <div class="cut"></div>
+      <label for="genre" class="placeholder">Genre</label>
+    </div>
+
+    <div class="input-container ic2">
+      <select
+        class="input"
+        id="author"
+        formControlName="authorId"
+        (change)="onAuthorSelect($event)"
+        required
+      >
+        <option value="add-new">Add New Author</option>
+        <option *ngFor="let author of authors" [value]="author.id">
+          {{ author.name }}
+        </option>
+      </select>
+      <div class="cut"></div>
+      <label for="author" class="placeholder">Author</label>
+    </div>
+
+    <!-- New Author Section -->
+    <div *ngIf="isAddingNewAuthor" class="input-container ic2">
+      <input
+        id="newAuthor"
+        class="input"
+        type="text"
+        placeholder=" "
+        [formControl]="newAuthorControl"
+        required
+      />
+      <div class="cut"></div>
+      <label for="newAuthor" class="placeholder">New Author Name</label>
+      <button type="button" class="submit" (click)="addNewAuthor()">Submit New Author</button>
+    </div>
+    <button type="submit" class="submit">Add Book</button>
+    <div>
+      <button class="navBack" (click)="navigateToLibrary()">
+        Back to Library
+      </button>
+    </div>
+    <!-- 
+  <label for="title">Title</label>
+  <input id="title" formControlName="title" required />
+
+  <label for="isbn">ISBN</label>
+  <input id="isbn" formControlName="isbn" required />
+
+
+
+  <label for="publishedDate">Published Date</label>
+  <input
+    id="publishedDate"
+    type="date"
+    formControlName="publishedDate"
+    required
+  />
+
+  <label for="genre">Genre</label>
+  <input id="genre" formControlName="genre" required />
+
+  <label for="author">Author</label>
+  <select id="author" formControlName="authorId" required>
+    <option value="" disabled>Select an author</option>
+    <option *ngFor="let author of authors" [value]="author.id">
+      {{ author.name }}
+    </option>
+  </select>
+
+  <button type="submit">Add Book</button> -->
+  </form>
+</div>
